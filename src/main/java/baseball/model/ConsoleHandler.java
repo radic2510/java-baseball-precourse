@@ -14,7 +14,7 @@ public class ConsoleHandler {
         List<Integer> ls = new ArrayList<>();
 
         for (int i = 0; i < answer.length(); i++) {
-            ls.add(Integer.parseInt(answer.substring(i, i++)));
+            ls.add(Integer.parseInt(answer.substring(i, i+1)));
         }
 
         return ls;
