@@ -19,19 +19,22 @@ public class RoundResult {
 
     public String getRoundResult() {
         StringBuilder sb = new StringBuilder();
-        if(strikeCount > 0) {
-            sb.append(strikeCount).append("스트라이크 ");
-        }
 
         if(ballCount > 0) {
-            sb.append(ballCount).append("볼");
+            sb.append(ballCount).append("볼 ");
+        }
+
+        if(strikeCount > 0) {
+            sb.append(strikeCount).append("스트라이크");
         }
 
         if(strikeCount <= 0  && ballCount <= 0) {
             sb.append("낫싱");
         }
 
-        return sb.toString();
+        String result = sb.toString();
+
+        return result.trim();
     }
 
     public int getStrikeCount() {
