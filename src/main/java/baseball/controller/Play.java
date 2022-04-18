@@ -29,30 +29,33 @@ public class Play {
         initGame();
 
         while (roundResult.isPlayCondition()) {
-            // 라운드 결과 초기화
-            roundResult = new RoundResult();
-
-            // 플레이어 입력
-            PlayView.RequestAnswer.printMsg();
-            Balls answerBalls = new Balls(consoleHandler.readAnswer());
-
-            // 입력 값 비교
-            answerBalls.compareBalls(quizBalls, roundResult);
-
-            // round 결과 출력
-            roundResult.printRoundResult();
-
-            // 게임 종료 확인
-            gameEndCheck();
+            roundProcess(); // 라운드 진행
+            gameEndCheck(); // 게임 종료 확인
         }
 
         PlayView.GameEnd.printMsg();
+    }
+
+    private void roundProcess() {
+        // 라운드 결과 초기화
+        roundResult = new RoundResult();
+
+        // 플레이어 입력
+        PlayView.RequestAnswer.printMsg();
+        Balls answerBalls = new Balls(consoleHandler.readAnswer());
+
+        // 결과 비교
+        answerBalls.compareBalls(quizBalls, roundResult);
+
+        // 라운드 결과 출력
+        roundResult.printRoundResult();
     }
 
     private void gameEndCheck() {
         if (roundResult.isEndCondition()) {
             PlayView.GameClear.printMsg();
             PlayView.RequestNewGameOrQuit.printMsg();
+
             replayCheck(consoleHandler.readSelection());
         }
     }
