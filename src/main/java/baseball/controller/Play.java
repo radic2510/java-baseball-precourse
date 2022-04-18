@@ -28,7 +28,6 @@ public class Play {
 
     public void playGame() {
         PlayView.GameStart.printMsg();
-
         initGame();
 
         while (roundResult.isPlayCondition()) {
@@ -37,9 +36,7 @@ public class Play {
 
             // 플레이어 입력
             PlayView.RequestAnswer.printMsg();
-            String input = consoleHandler.readConsoleInput();
-            List<Integer> inputList = consoleHandler.convertStringToList(input);
-            Balls answerBalls = new Balls(inputList);
+            Balls answerBalls = new Balls(consoleHandler.readAnswer());
 
             // 입력 값 비교
             answerBalls.compareBalls(quizBalls, roundResult);
@@ -50,20 +47,17 @@ public class Play {
             if (roundResult.isEndCondition()) {
                 PlayView.GameClear.printMsg();
                 PlayView.RequestNewGameOrQuit.printMsg();
-                String input2 = consoleHandler.readConsoleInput();
-                gameEndCheck(input2);
+                gameEndCheck(consoleHandler.readSelection());
             }
-
         }
 
         PlayView.GameEnd.printMsg();
     }
 
-    private void gameEndCheck(String input2) {
-        if ("1".equals(input2)) {
+    private void gameEndCheck(int selectedNo) {
+        if (selectedNo == 1) {
             initGame();
         }
     }
-
 
 }

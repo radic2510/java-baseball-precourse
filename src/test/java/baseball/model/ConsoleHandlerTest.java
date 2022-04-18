@@ -3,6 +3,9 @@ package baseball.model;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,7 +18,9 @@ class ConsoleHandlerTest {
     @Test
     void validationNormalCaseTest() {
         String input = "369";
-        assertThat(consoleHandler.isValidAnswer(input)).isTrue();
+        List<Integer> convertedList = new ArrayList<>(Arrays.asList(3, 6, 9));
+
+        assertThat(consoleHandler.convertStringToList(input)).isEqualTo(convertedList);
     }
 
     @DisplayName("입력 값이 없는 경우 검증")
@@ -63,7 +68,7 @@ class ConsoleHandlerTest {
     }
 
     private ThrowingCallable getThrowingCallable(String input) {
-        return () -> consoleHandler.isValidAnswer(input);
+        return () -> consoleHandler.validateAnswer(input);
     }
 
 }
