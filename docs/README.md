@@ -15,13 +15,13 @@
   * 에러: IllegalArgumentException
 
 ## 프로그래밍 요구 사항
-- [ ] 프로그램의 시작점은 src/main/java 폴더의 baseball.Application의 main()이다.
-- [ ] JDK 8 버전에서 실행가능해야 한다.
-- [ ] JDK에서 제공하는 Random 및 Scanner API 대신 camp.nextstep.edu.missionutils 에서 제공하는 Randoms 및 Console API를 사용하여 구현해야 한다.
-- [ ] src/test/java 폴더의 baseball.ApplicationTest에 있는 2개의 Test Case가 성공해야 한다.
-- [ ] 자바 코드 컨벤션을 지키면서 프로그래밍한다.
-- [ ] indent(인덴트, 들여쓰기) depth를 2가 넘지 않도록 구현한다. 1까지만 허용한다.
-- [ ] 자바 8에 추가된 stream api를 사용하지 않고 구현해야 한다. 단 람다는 사용 가능하다.
-- [ ] else 예약어를 쓰지 않는다.
-- [ ] 함수(또는 메소드)의 길이가 10라인을 넘어가지 않도록 구현한다.
-- [ ] 도메인 로직에 단위 테스트를 구현해야 한다. 단 UI(System.out, System.in, Scanner)로직은 제외
+- [x] 프로그램의 시작점은 src/main/java 폴더의 baseball.Application의 main()이다.
+- [x] JDK 8 버전에서 실행가능해야 한다.
+- [x] JDK에서 제공하는 Random 및 Scanner API 대신 camp.nextstep.edu.missionutils 에서 제공하는 Randoms 및 Console API를 사용하여 구현해야 한다.
+- [x] src/test/java 폴더의 baseball.ApplicationTest에 있는 2개의 Test Case가 성공해야 한다.
+- [x] 자바 코드 컨벤션을 지키면서 프로그래밍한다.
+- [x] indent(인덴트, 들여쓰기) depth를 2가 넘지 않도록 구현한다. 1까지만 허용한다.
+- [x] 자바 8에 추가된 stream api를 사용하지 않고 구현해야 한다. 단 람다는 사용 가능하다.
+- [x] else 예약어를 쓰지 않는다.
+- [x] 함수(또는 메소드)의 길이가 10라인을 넘어가지 않도록 구현한다.
+- [x] 도메인 로직에 단위 테스트를 구현해야 한다. 단 UI(System.out, System.in, Scanner)로직은 제외
