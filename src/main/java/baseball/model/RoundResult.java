@@ -20,15 +20,15 @@ public class RoundResult {
     public String getRoundResult() {
         StringBuilder sb = new StringBuilder();
 
-        if(ballCount > 0) {
+        if (ballCount > 0) {
             sb.append(ballCount).append("볼 ");
         }
 
-        if(strikeCount > 0) {
+        if (strikeCount > 0) {
             sb.append(strikeCount).append("스트라이크");
         }
 
-        if(strikeCount <= 0  && ballCount <= 0) {
+        if (strikeCount <= 0 && ballCount <= 0) {
             sb.append("낫싱");
         }
 

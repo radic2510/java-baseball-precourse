@@ -49,11 +49,11 @@ public class Balls {
     }
 
     private void ballStatusCheck(boolean isBall, boolean isStrike, RoundResult result) {
-        if(isBall && !isStrike) {
+        if (isBall && !isStrike) {
             result.addBall();
         }
 
-        if(isBall && isStrike) {
+        if (isBall && isStrike) {
             result.addStrike();
         }
     }
