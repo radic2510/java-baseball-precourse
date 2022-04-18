@@ -42,17 +42,22 @@ public class Play {
             // round 결과 출력
             roundResult.printRoundResult();
 
-            if (roundResult.isEndCondition()) {
-                PlayView.GameClear.printMsg();
-                PlayView.RequestNewGameOrQuit.printMsg();
-                gameEndCheck(consoleHandler.readSelection());
-            }
+            // 게임 종료 확인
+            gameEndCheck();
         }
 
         PlayView.GameEnd.printMsg();
     }
 
-    private void gameEndCheck(int selectedNo) {
+    private void gameEndCheck() {
+        if (roundResult.isEndCondition()) {
+            PlayView.GameClear.printMsg();
+            PlayView.RequestNewGameOrQuit.printMsg();
+            replayCheck(consoleHandler.readSelection());
+        }
+    }
+
+    private void replayCheck(int selectedNo) {
         if (selectedNo == 1) {
             initGame();
         }
