@@ -15,6 +15,58 @@ public class Balls {
         }
     }
 
+    public void compareBalls(Balls quizBalls, RoundResult result) {
+        List<Ball> quizBallsList = quizBalls.getBallList();
+
+        for (Ball ball : ballList) {
+            int ballNumber = ball.getNumber();
+            int ballPosition = ball.getPosition();
+            Ball quizBall = quizBallsList.get(ballPosition);
+
+            boolean isBall = isBall(ballNumber, quizBallsList);
+            boolean isStrike = isStrike(ball, quizBall);
+
+            ballStatusCheck(isBall, isStrike, result);
+        }
+    }
+
+    private void ballStatusCheck(boolean isBall, boolean isStrike, RoundResult result) {
+        if(isBall && !isStrike) {
+            result.addBall();
+        }
+
+        if(isBall && isStrike) {
+            result.addStrike();
+        }
+    }
+
+    private boolean isBall(int ballNum, List<Ball> quizBallsList) {
+        List<Integer> qNumbers = extractNumbersFromBallList(quizBallsList);
+        return qNumbers.contains(ballNum);
+    }
+
+    private boolean isStrike(Ball ball1, Ball ball2) {
+        return compareBallNumber(ball1, ball2) && compareBallPosition(ball1, ball2);
+    }
+
+    private boolean compareBallNumber(Ball ball1, Ball ball2) {
+        return ball1.getNumber() == ball2.getNumber();
+    }
+
+    private boolean compareBallPosition(Ball ball1, Ball ball2) {
+        return ball1.getPosition() == ball2.getPosition();
+    }
+
+    public List<Integer> extractNumbersFromBallList(List<Ball> ballList) {
+        List<Integer> numbers = new ArrayList<>();
+
+        for (Ball ball : ballList) {
+            numbers.add(ball.getNumber());
+        }
+
+        return numbers;
+    }
+
     public List<Ball> getBallList() {
         return ballList;
     }
