@@ -48,7 +48,7 @@ class RoundResultTest {
         rr.addStrike();
         rr.addBall();
 
-        String expectResult = "2스트라이크 1볼";
+        String expectResult = "1볼 2스트라이크";
 
         assertThat(rr.getRoundResult()).isEqualTo(expectResult);
     }

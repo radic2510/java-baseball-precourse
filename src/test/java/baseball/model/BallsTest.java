@@ -1,6 +1,5 @@
 package baseball.model;
 
-import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import camp.nextstep.edu.missionutils.Randoms;
@@ -45,18 +44,21 @@ public class BallsTest {
     @Test
     void compareBalls() {
         List<Integer> numberList = Randoms.pickUniqueNumbersInRange(1, 9, 3);
-        Balls balls1 = new Balls(numberList);
-        Balls balls2 = new Balls(numberList);
-        Balls balls3 = new Balls(Arrays.asList(1, 1, 1));
-        RoundResult rr = new RoundResult();
+        Balls quizBalls = new Balls(numberList);
+        Balls threeStrikeBalls = new Balls(numberList);
+
+        int ballNo = quizBalls.getBallList().get(0).getNumber();
+        Balls twoBallAndOneStrikeBalls = new Balls(Arrays.asList(ballNo, ballNo, ballNo));
 
         // 같은 리스트 - 3스트라이크 확인
-        balls1.compareBalls(balls2, rr);
+        RoundResult rr = new RoundResult();
+        threeStrikeBalls.compareBalls(quizBalls, rr);
         assertThat(rr.getStrikeCount()).isEqualTo(3);
 
         // 다른 리스트 - 다른 결과 확인
-        balls1.compareBalls(balls3, rr);
-        assertThat(rr.getStrikeCount()).isEqualTo(3);
+        rr = new RoundResult();
+        twoBallAndOneStrikeBalls.compareBalls(quizBalls, rr);
+        assertThat(rr.getBallCount()).isEqualTo(2);
     }
 
 }
