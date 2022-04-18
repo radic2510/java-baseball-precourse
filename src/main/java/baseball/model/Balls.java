@@ -1,5 +1,6 @@
 package baseball.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.*;
 
 public class Balls {
@@ -7,12 +8,29 @@ public class Balls {
     private List<Ball> ballList;
     private final int BALLS_SIZE = 3;
 
+    public Balls() {
+    }
+
     public Balls(List<Integer> answer) {
+        makeBallList(answer);
+    }
+
+    public void makeBallList(List<Integer> answer) {
         ballList = new ArrayList<>();
 
         for (int i = 0; i < answer.size(); i++) {
             ballList.add(new Ball(i, answer.get(i)));
         }
+    }
+
+    public void makeQuiz() {
+        Set<Integer> set = new HashSet<>();
+
+        while (set.size() != 3) {
+            set.add(Randoms.pickNumberInRange(1, 9));
+        }
+
+        makeBallList(new ArrayList<>(set));
     }
 
     public void compareBalls(Balls quizBalls, RoundResult result) {

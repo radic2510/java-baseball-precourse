@@ -4,8 +4,6 @@ import baseball.model.Balls;
 import baseball.model.ConsoleHandler;
 import baseball.model.RoundResult;
 import baseball.view.PlayView;
-import camp.nextstep.edu.missionutils.Randoms;
-import java.util.List;
 
 public class Play {
 
@@ -19,8 +17,8 @@ public class Play {
 
     public void initGame() {
         // 퀴즈 생성
-        List<Integer> uniqueNumberList = Randoms.pickUniqueNumbersInRange(1, 9, 3);
-        quizBalls = new Balls(uniqueNumberList);
+        quizBalls = new Balls();
+        quizBalls.makeQuiz();
 
         // 라운드 결과 초기화
         roundResult = new RoundResult();
