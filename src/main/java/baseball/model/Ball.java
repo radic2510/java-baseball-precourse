@@ -2,8 +2,8 @@ package baseball.model;
 
 public class Ball {
 
-    private int position;
-    private int number;
+    private final int position;
+    private final int number;
 
     public Ball(int position, int number) {
         this.position = position;
@@ -18,15 +18,8 @@ public class Ball {
         return position;
     }
 
-    public void setPosition(int position) {
-        this.position = position;
-    }
-
     public int getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
-    }
 }

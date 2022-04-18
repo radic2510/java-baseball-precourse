@@ -75,7 +75,7 @@ public class Balls {
         return ball1.getPosition() == ball2.getPosition();
     }
 
-    public List<Integer> extractNumbersFromBallList(List<Ball> ballList) {
+    private List<Integer> extractNumbersFromBallList(List<Ball> ballList) {
         List<Integer> numbers = new ArrayList<>();
 
         for (Ball ball : ballList) {
