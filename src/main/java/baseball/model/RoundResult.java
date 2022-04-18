@@ -28,7 +28,7 @@ public class RoundResult {
         }
 
         if(strikeCount <= 0  && ballCount <= 0) {
-            sb.append("낫씽");
+            sb.append("낫싱");
         }
 
         return sb.toString();
