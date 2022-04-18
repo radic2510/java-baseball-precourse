@@ -5,6 +5,14 @@ public class RoundResult {
     private int strikeCount = 0;
     private int ballCount = 0;
 
+    public boolean isPlayCondition() {
+        return strikeCount != 3;
+    }
+
+    public boolean isEndCondition() {
+        return strikeCount == 3;
+    }
+
     public void printRoundResult() {
         System.out.println(getRoundResult());
     }
