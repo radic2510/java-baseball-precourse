@@ -13,7 +13,7 @@ public class BallsTest {
 
     @DisplayName("문제 생성: 1~9까지 서로 다른 수로 이루어진 세 자리 숫자를 생성")
     @Test
-    void createQuiz() {
+    void createQuizTest() {
         Balls quizBalls = new Balls();
         quizBalls.makeQuiz();
 
@@ -27,6 +27,18 @@ public class BallsTest {
 
         // 각 자리 숫자가 서로 다른지 확인
         assertThat(quizBalls.isNoDuplication()).isTrue();
+    }
+
+    @DisplayName("입력(String)을 통한 Balls 생성 확인")
+    @Test
+    void createBallsUsingInput() {
+        String input = "123";
+        ConsoleHandler ch = new ConsoleHandler();
+        List<Integer> inputList = ch.convertStringToList(input);
+
+        Balls balls = new Balls(inputList);
+
+        assertThat(balls.getBallList().size()).isEqualTo(3);
     }
 
     @DisplayName("두 공 리스트 비교하여 결과 확인")
